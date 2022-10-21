@@ -4,11 +4,6 @@ import json
 app = flask.Flask(__name__)
 @app.route("/data/2.5/weather", methods=["GET"])
 def weather():
-    if "appid" not in flask.request.args:
-        return json.dumps({"cod": 401, "message": "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info."})
-    elif len(flask.request.args) == 1:
-        return json.dumps({"cod": 400,"message": "Nothing to geocode"})
-    else:
         return json.dumps({
             "coord": {
                 "lon": -123.262,
